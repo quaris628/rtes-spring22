@@ -1,0 +1,23 @@
+State machine diagrams
+
+entry /
+do /
+exit /
+
+entry is performed on state entry
+do is performed during state being present
+exit is performed on state exit
+
+initial pseudostate, filled in black circle
+terminate pseudostate
+... etc other elements
+
+Events
+ - Time event ("after: " or "at: ")
+ - Completion event (no trigger)
+ - Signal event (receive an OS signal)
+ - Call event (receive message)
+ - Change event ("when: ")
+
+Diamond decision point = eval guard before (or after?) decision point
+Filled-in circle decision point = eval guard after (or before?) decision point

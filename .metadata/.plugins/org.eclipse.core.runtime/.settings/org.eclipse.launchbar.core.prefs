@@ -1,0 +1,14 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:inclass-03-03 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:inclass-03-01 Debug (1),org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:inclass-03-01 Debug (2),org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:in-class-02-22 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:in-class-2-24 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:inclass-03-01 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Lab-2 Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Lab-2 Debug (1),org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Lab-2 Debug (2),org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Lab-3 Debug
+eclipse.preferences.version=1
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Lab-2\ Debug\ (1)/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Lab-2\ Debug\ (1)/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Lab-2\ Debug\ (2)/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Lab-3\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:in-class-02-22\ Debug/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:in-class-02-22\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:in-class-2-10\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:in-class-2-10\ Debug/activeLaunchTarget=null\:---
+org.eclipse.launchbar.core.descriptorType.default\:inclass-03-01\ Debug\ (1)/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local

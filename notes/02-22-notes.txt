@@ -1,0 +1,17 @@
+Google: ISR = interrupt service routine
+
+Level-sensitive = if voltage has been high for a long enough time, trigger a thing
+edge-triggered = if voltage has transitioned from low to high, trigger a thing
+
+e.g.
+if A and B are edge-triggered, and A and B share an IRQ line that asserts an interrupt, when A is having its interrupt serviced any B interrupts are never detected, which kills IRQ line until system restart
+
+Could have clock like this:
+every X ms, have a clock interrupt the system
+say 50 ms interrupt, and update display twice a second
+
+^ Need to mark display as critical section so time display doesn't have half of one time, and half of another
+
+Critical sections need to not miss interrupts
+Could use a buffer to fix this too ^, have one data copy for timer, and one copy for display, and switch which one is which occasionally
+??? but wouldn't that switching which is which need to be a critical section anyway?

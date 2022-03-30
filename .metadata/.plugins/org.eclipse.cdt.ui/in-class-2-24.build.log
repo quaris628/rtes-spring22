@@ -1,0 +1,20 @@
+13:45:07 **** Incremental Build of configuration Debug for project in-class-2-24 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F413xx -DDEBUG -c -I../USB_HOST/App -I../Drivers/BSP/STM32F413H-Discovery -I../USB_HOST/Target -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Host_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Host_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "in-class-2-24.elf" @"objects.list"   -mcpu=cortex-m4 -T"J:\RTES\in-class\2-24\STM32F413ZHTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="in-class-2-24.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: in-class-2-24.elf
+ 
+arm-none-eabi-objdump -h -S  in-class-2-24.elf  > "in-class-2-24.list"
+arm-none-eabi-objcopy  -O binary  in-class-2-24.elf  "in-class-2-24.bin"
+arm-none-eabi-size   in-class-2-24.elf 
+   text	   data	    bss	    dec	    hex	filename
+  62832	    240	   4360	  67432	  10768	in-class-2-24.elf
+Finished building: default.size.stdout
+ 
+Finished building: in-class-2-24.bin
+ 
+Finished building: in-class-2-24.list
+ 
+
+13:45:13 Build Finished. 0 errors, 0 warnings. (took 5s.710ms)
+

@@ -1,0 +1,6 @@
+-... .- -.
+
+Detect, Acknowledge, Service
+
+outstanding time = time before device service request reset/ack
+response time = time before device service request completed

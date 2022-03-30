@@ -1,0 +1,52 @@
+C 5 Green LED
+E 3 Red LED
+
+F 10 D3 LEFT
+G 13 D2 TOP
+F 7  D1 LEFT
+F 6  D0 LEFT
+
+example code:
+
+// INCLDUES
+#include <stdbool.h>
+#include <string.h>
+
+// BASICS
+HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_5);
+HAL_Delay(1000); // sleep is much better, delay is very sloppy design
+HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_10)
+
+// SEND/RECIEVE DATA (PuTTy)
+uint8_t *data = "Hello World! \r\n";
+unit8_t[] rx_buffer = ???;
+// params: ?, string, string len, delay in ms
+HAL_UART_Transmit(&huart6, data, strlen(data), 10);
+HAL_UART_Receive(&huart6, rx_buffer, 2, 3000);
+HAL_Delay(1000);
+if (rx_buffer[0] == 'X') {...}
+
+Run As... -> STM... then start PuTTy
+
+
+// INTERRUPTS (Class08 powerpoint)
+Hardware config:
+	Config pin as GPIO_EXTI0 (or other trailing number)
+	System Core > NVIC > EXTI line0 interrupt > check checkbox
+Generate code
+go to file "..._it.c" / "..._it.h"
+to go method: EXTI0_IRQHandler(void) { /* insert user code */ }
+
+if need vars in both ..._it.c and main.c,
+in _it.c:
+	/* USER CODE BEGIN EV */
+	extern Type varname;
+	/* USER CODE END EV */
+in main.c, define variable normally (and outside of any methods): Type varname
+
+Enable global interrupts:
+System Core > NVIC > USART6 enable (?)
+
+See class 12 powerpoint for fast & good design serial comms
+
+serial com speed 115200

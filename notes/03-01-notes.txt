@@ -1,0 +1,16 @@
+USART / UART Serial COmmunication
+USART = Universal Synchronous/Async Reciever/Transmitter
+UART = Universal Async Receiver/Transmitter
+
+Serial comm is simply a bit stream sent over a single wire (2 for bi-directional) to send or receive data
+
+e.g. to send 8 bits of data over a thing:
+start bit
+  v        v stop bit
+__         _
+  _|||||||| 
+
+| = high or low depending on bits of data
+
+good exercise, try to have interrupt change the message being sent in main
+instead of changing boolean flag
