@@ -212,11 +212,12 @@ void SysTick_Handler(void)
 /* please refer to the startup file (startup_stm32f4xx.s).                    */
 /******************************************************************************/
 
-# inserts a task in the job queue, at tailNode
+// inserts a task in the job queue, at tailNode
 void insertAtTail(FunctionPointer task) {
 	// Create new node pointing to function 3
 	fcnNode *function = malloc(sizeof(fcnNode));
 	function->fcnPtr = task;
+	function->nextNode = NULL;
 	// If queue is not empty
 	if(tailNode != NULL) {
 		// append function to the tail of the linked list

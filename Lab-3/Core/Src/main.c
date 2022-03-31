@@ -160,8 +160,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-  BSP_LCD_Init();
-  BSP_LCD_Clear(LCD_COLOR_WHITE);
+
 
   /* USER CODE END Init */
 
@@ -188,6 +187,8 @@ int main(void)
   MX_USB_HOST_Init();
   MX_I2C2_Init();
   /* USER CODE BEGIN 2 */
+  BSP_LCD_Init();
+  BSP_LCD_Clear(LCD_COLOR_WHITE);
   /* USER CODE END 2 */
 
   /* Infinite loop */
