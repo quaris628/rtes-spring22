@@ -28,7 +28,7 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
-typedef void* (*FunctionPointer)( double *, int *, char *, char *);
+typedef void* (*FunctionPointer)( int * );
 
 // struct definition for a node in our linked list
 typedef struct fcnNode {
@@ -66,6 +66,7 @@ extern void * T1;
 extern void * T2;
 extern void * T3;
 extern void * T4;
+
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
@@ -211,36 +212,38 @@ void SysTick_Handler(void)
 /* please refer to the startup file (startup_stm32f4xx.s).                    */
 /******************************************************************************/
 
+# inserts a task in the job queue, at tailNode
+void insertAtTail(FunctionPointer task) {
+	// Create new node pointing to function 3
+	fcnNode *function = malloc(sizeof(fcnNode));
+	function->fcnPtr = task;
+	// If queue is not empty
+	if(tailNode != NULL) {
+		// append function to the tail of the linked list
+		tailNode->nextNode = function;
+	// If queue is empty
+	} else {
+		headerNode = function;
+	}
+	// re-align tail node to point to function
+	tailNode = function;
+}
+
+
 /**
   * @brief This function handles EXTI line[9:5] interrupts.
   */
 void EXTI9_5_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI9_5_IRQn 0 */
-	if(HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_7))
-	{
-		fcnNode *function = malloc(sizeof(fcnNode));
-		function->fcnPtr = &T1;
-		if(tailNode != NULL)
-		{
-			tailNode->nextNode = function;
-		}
-		tailNode = function;
-	}
-	else if(HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_6))
-	{
-		fcnNode *function = malloc(sizeof(fcnNode));
-		function->fcnPtr = &T2;
-		if(tailNode != NULL)
-		{
-			tailNode->nextNode = function;
-		}
-		tailNode = function;
-	}
-
-	if(headerNode == NULL)
-	{
-		headerNode = tailNode;
+    // If button 1 pressed
+	if(HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_7)) {
+		// queue up task 1
+		insertAtTail(&T1);
+	// If button 2 pressed
+	} else if(HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_6)) {
+		// queue up task 2
+		insertAtTail(&T2);
 	}
   /* USER CODE END EXTI9_5_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_6);
@@ -256,31 +259,16 @@ void EXTI9_5_IRQHandler(void)
 void EXTI15_10_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI15_10_IRQn 0 */
-	if(HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_10))
-	{
-		fcnNode *function = malloc(sizeof(fcnNode));
-		function->fcnPtr = &T3;
-		if(tailNode != NULL)
-		{
-			tailNode->nextNode = function;
-		}
-		tailNode = function;
-	}
-	else if(HAL_GPIO_ReadPin(GPIOG, GPIO_PIN_13))
-	{
-		fcnNode *function = malloc(sizeof(fcnNode));
-		function->fcnPtr = &T4;
-		if(tailNode != NULL)
-		{
-			tailNode->nextNode = function;
-		}
-		tailNode = function;
+    // If button 3 pressed
+	if(HAL_GPIO_ReadPin(GPIOF, GPIO_PIN_10)) {
+		// queue up task 3
+		insertAtTail(&T3);
+	// If button 4 pressed
+	} else if(HAL_GPIO_ReadPin(GPIOG, GPIO_PIN_13)) {
+		// queue up task 4
+		insertAtTail(&T4);
 	}
 
-	if(headerNode == NULL)
-	{
-		headerNode = tailNode;
-	}
   /* USER CODE END EXTI15_10_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_10);
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_11);
